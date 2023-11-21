@@ -1,58 +1,66 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { Agenda} from 'react-native-calendars';
+import { Agenda } from 'react-native-calendars';
 
 const YourComponent = () => {
+  const header = '';
 
-  
-  // Create a new Date object to get the current date
-  const currentDate = new Date();
-
-  // Extract day, month, and year from the Date object
-  const day = currentDate.getDate();
-  const month = currentDate.getMonth() + 1; // Month is zero-based (0 - 11), so add 1
-  const year = currentDate.getFullYear();
-
-  // Format the date as needed (e.g., MM/DD/YYYY)
-  const formattedDate = `${month}/${day}/${year}`;
+  const items = {
+    '2023-11-21': [{ name: 'Today', additionalInfo: 'Time Slots' }],
+    '2023-11-22': [{ name: 'Event 2', additionalInfo: 'Details for Event 2' }],
+    '2023-11-23': [{ name: 'Event 3', additionalInfo: 'Details for Event 3' }],
+    '2023-11-24': [{ name: 'Event 4', height: 80, additionalInfo: 'Details for Event 4' }],
+  };
 
   return (
-    
-    <View style={{ flex: 1 }}>
-      <Agenda
-        // Add necessary props for Agenda component
-        // For example:
-        items={{
-          '2023-11-14': [{ name: 'Event 2' }],
-          '2023-11-15': [{ name: 'Event 3' }],
-          '2023-11-21':[{name : 'Event 4'}],
-          '2023-11-22': [{name: 'Event 5', height: 80,}],
-        }}
+    <><View style={{ flex: 1 }}>
 
+      <View style={{ backgroundColor: 'beige', padding: 10,  }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold' }}></Text>
+      </View>
+
+      <Agenda
+        items={items}
         selected={'2023-11-21'}
         minDate={'2023-11-21'}
-        maxDate={'2023-12-5'}
-        //pastScrollRange={0}
+        maxDate={'2023-12-05'}
+        renderEmptyDate={() => <View />}
+        renderItem={(item) => (
+          <View style={{
+            borderWidth: 1,
+            borderColor: 'black',
+            padding: 10,
+            marginBottom: 10,
+            marginRight: 10,
+            marginTop: 30,
+            borderRadius: 5,
+            backgroundColor: 'beige'
+          }}>
+            <Text>{item.name}</Text>
+            <Text>{item.additionalInfo}</Text>
+          </View>
 
-        renderEmptyDate={() => {
-          return <View />;
-          <Text style={{ fontSize: 20, color: 'black' }}>Hello, React Native!</Text>
-        }}
-        
+        )}
         theme={{
-
-          textDayFontSize: 20,
-          agendaDayTextColor: 'red',
-          agendaDayNumColor: 'green',
-          agendaTodayColor: 'red',
-          agendaKnobColor: 'blue'
-        }}
-        // Agenda container style
-        style={{}}
-        // Add other props as needed
-      />
+          agendaDayTextColor: 'black',
+          agendaDayNumColor: 'blue',
+          agendaTodayColor: 'blue',
+          agendaKnobColor: 'black',
+          selectedDotColor:'beige',
+          backgroundColor: 'beige',
+          
+        }} />
     </View>
 
+{/* Banner at the bottom */}
+      <View style={{ backgroundColor: 'beige', height: 100, borderWidth: 0.25, borderColor: 'black' }}>
+        {/* Three evenly spaced boxes */}
+        <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', height: '100%' }}>
+          <View style={{ width: 75, height: 75, borderWidth: 0.25, borderColor: 'black', borderRadius: 10, }} />
+          <View style={{ width: 75, height: 75, borderWidth: 0.25, borderColor: 'black', borderRadius: 10, }} />
+          <View style={{ width: 75, height: 75, borderWidth: 0.25, borderColor: 'black', borderRadius: 10, }} />
+        </View>
+      </View></>
   );
 };
 
