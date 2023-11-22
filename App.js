@@ -45,9 +45,10 @@ const YourComponent = () => {
           agendaDayTextColor: 'black',
           agendaDayNumColor: 'blue',
           agendaTodayColor: 'blue',
-          agendaKnobColor: 'black',
-          selectedDotColor:'beige',
+          agendaKnobColor: 'blue',
+          selectedDotColor:'blue',
           backgroundColor: 'beige',
+          selectedDayBackgroundColor: 'beige'
           
         }} />
     </View>
