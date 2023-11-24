@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 
 const Stack = createStackNavigator();
 
-const MainScreen = () => {
+const StartScreen = () => {
   const navigation = useNavigation();
 
   return (
@@ -39,7 +39,7 @@ const RegistrationScreen = () => {
 
     console.log('Register:', registrationData);
 
-    navigation.navigate('Main');
+    navigation.navigate('Start');
   };
 
   return (
@@ -99,6 +99,15 @@ const LoginScreen = () => {
   );
 };
 
+const MainScreen = () => {
+
+  return (
+    <View style={styles.container}>
+      
+    </View>
+  );
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -117,10 +126,11 @@ const styles = StyleSheet.create({
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Main">
-        <Stack.Screen name="Main" component={MainScreen} />
+      <Stack.Navigator initialRouteName="Start">
+        <Stack.Screen name="Start" component={StartScreen} />
         <Stack.Screen name="Registration" component={RegistrationScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Main" component={MainScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
