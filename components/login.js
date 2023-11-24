@@ -18,7 +18,7 @@ const LoginScreen = () => {
 
     console.log('Login:', loginData);
 
-    navigation.navigate('Main');
+    navigation.navigate('Home');
   };
 
   return (

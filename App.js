@@ -6,6 +6,8 @@ import { View, TextInput, Button, StyleSheet,AppRegistry,container } from 'react
 import { useNavigation } from '@react-navigation/native';
 import {LoginScreen} from './components/login'
 import {RegistrationScreen} from './components/register'
+import {HomeScreen} from './components/main'
+import {BookingScreen} from './components/Booking'
 
 
 const Stack = createStackNavigator();
@@ -49,7 +51,8 @@ const App = () => {
         <Stack.Screen name="Main" component={MainScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Registration" component={RegistrationScreen} />
-        {/* <Stack.Screen name="Timeslots" component={Timeslots} /> */}
+        <Stack.Screen name="Home" component={HomeScreen}/>
+        <Stack.Screen name="Booking" component={BookingScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
