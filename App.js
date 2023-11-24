@@ -2,10 +2,11 @@
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { View, TextInput, Button, StyleSheet,AppRegistry,container } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import {LoginScreen} from './components/login'
 import {RegistrationScreen} from './components/register'
+
 
 const Stack = createStackNavigator();
 
@@ -26,7 +27,20 @@ const MainScreen = () => {
   );
 };
 
-
+const Styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 16,
+  },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginBottom: 10,
+    padding: 8,
+  },
+});
 
 const App = () => {
   return (
@@ -41,4 +55,5 @@ const App = () => {
   );
 };
 
+AppRegistry.registerComponent('App', () =>App)
 export default App;
